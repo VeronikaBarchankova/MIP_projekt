@@ -1,10 +1,10 @@
 % Metódy inžinierskej práce
 
-\documentclass[10pt,twoside,slovak,a4paper]{coursepaper}
+\documentclass[10pt,twoside,slovak,a4paper]{article}
 
 \usepackage[slovak]{babel}
 %\usepackage[T1]{fontenc}
-\usepackage[IL2]{fontenc} % lepšia sadzba písmena Ľ než v T1
+\usepackage[IL2]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{url} % príkaz \url na formátovanie URL
@@ -13,17 +13,18 @@
 \usepackage{cite}
 %\usepackage{times}
 
-\pagestyle{headings}
+%\pagestyle{}
 
-\title{Názov\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: Meno Priezvisko}} % meno a priezvisko vyučujúceho na cvičeniach
+\title{Vývoj a vplyv sémantického vyhľadávania pri získavaí informácií:
+od kľúčových slov k významu\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: PaedDr. Pavol Baťalík}} % meno a priezvisko vyučujúceho na cvičeniach
 
-\author{Meno Priezvisko\\[2pt]
+\author{Veronika Barchánková\\[2pt]
 	{\small Slovenská technická univerzita v Bratislave}\\
 	{\small Fakulta informatiky a informačných technológií}\\
-	{\small \texttt{...@stuba.sk}}
+	{\small \texttt{xbarchankova@stuba.sk}}
 	}
 
-\date{\small 30. september 2015} % upravte
+\date{\small{\today}} % uprav
 
 
 
@@ -39,78 +40,68 @@
 
 \section{Úvod}
 
-Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
+Táto téma umožňuje preskúmať históriu, vývoj a význam sémantického vyhĺadávania v oblasti vyhľadávania
+informácií.
+Zameriavame sa na to ako sa tradičné vyhľadávače založené na kľúčových slovách vyvinuli do sofistikovanejších systémov, ktoré zohľadňujú kontext a význam slov a fráz, a ako tento vývoj zlepšil presnosť a
+relevantnosť výsledkov vyhľadávania.~\ref{vyvoj}
+Okrem toho je možné preskúmať praktické aplikácie a potenciálny budúci vývoj technológie sémantického
+vyhľadávania v rôznych oblastiach,~\ref{oblasti} ako je elektronický obchod (e-shop)~\ref{eshops} alebo zdravotná starostlivosť.~\ref{healthcare}
+Boli by poskytnuté poznatky o úlohe porozumenia prirodzeného jazyka a umelej inteligencie pri zlepšovaní
+spôsobu, akým nachádzame informácie a pristupujeme k nim online.~\ref{ai}
 
-Uveďte explicitne štruktúru článku. Tu je nejaký príklad.
-Základný problém, ktorý bol naznačený v úvode, je podrobnejšie vysvetlený v časti~\ref{nejaka}.
-Dôležité súvislosti sú uvedené v častiach~\ref{dolezita} a~\ref{dolezitejsia}.
-Záverečné poznámky prináša časť~\ref{zaver}.
 
 
-
-\section{Nejaká časť} \label{nejaka}
-
-Z obr.~\ref{f:rozhod} je všetko jasné. 
-
-\begin{figure*}[tbh]
-\centering
+%\begin{figure*}[tbh]
+%\centering
 %\includegraphics[scale=1.0]{diagram.pdf}
-Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný plávajúci objekt. Po vytvorení diagramu zrušte znak \texttt{\%} pred príkazom \verb|\includegraphics| označte tento riadok ako komentár (tiež pomocou znaku \texttt{\%}).
-\caption{Rozhodujúci argument.}
-\label{f:rozhod}
-\end{figure*}
+%Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný plávajúci objekt. Po vytvorení diagramu zrušte znak \texttt{\%} pred príkazom \verb|\includegraphics| označte tento riadok ako komentár (tiež pomocou znaku \texttt{\%}).
+%\caption{Rozhodujúci argument.}
+%\label{f:rozhod}
+%\end{figure*}
 
+\section{Rozdiel medzi vyhľadávaním kľúčových slov a sémantickým vyhľadávaním}\label{rozdiel}
+\cite{5423739} Vyhľadávanie kľúčoými slovami je založené na použití kľúčových slov alebo fráz. Realizuje sa vyhľadávaním v pripravenom indexe. Tieto kľúčové slová môžu byť rozšírené o ďalšie slová, ako sú synonymá, aliasy atď. Napriek svojej kvalite nie je možné kľúčové vyhľadávanie považovať za inteligentné vyhľadávanie.
 
+Sémantické vyhľadávanie je inteligentná alternatíva vyhľadávania, ktorá je založená na sémantickom pochopení hľadaných informácií. Je tiež založený na kontextových informáciách. Potrebuje ďalšie sémantické informácie, ktoré sú zrozumiteľné pre stroje. Stroje majú vyšší výkon a tak dokážu spracovať väčšie množstvo informácií.
 
-\section{Iná časť} \label{ina}
+\section{Vývoj sémantického vyhľadávania} \label{vyvoj} \cite{roy2019overview}
+Slovo „sémantický“ sa vzťahuje na význam alebo zhrnutie niečoho. „Sémantika" v kontexte vyhľadávania sa vzťahuje logické spájanie slov s ich širším významom. Je to technikou vyhĺadávania údajov, nie je to iba vyhľadávací dotaz na nájdenie kľúčových slov. Berie sa do úvahy aj o určenie zámeru a kontextový význam hľadaných slov, ktoré človek používa. Preto poskytuje významnejšie výsledky vyhľadávania tým, že posudzuje a pochopenia hľadanej frázy a objavenie najvhodnejších výsledkov na webovej lokalite, databáze alebo akomkoľvek inom úložisku údajov. V praxi by to vyzeralo tak, že ak vyhľadáme slovo „Apple", tak nám vyhľadávač, ktorý využíva sémantické vyhľadávanie, vráti výsledky o firme Apple skôr ako výsledky o jablkách. Súčasťou sémantického vyhľadávania sú taktiež synonymá výrazov, súčasné trendy, varianty vyhľadávaného slová a ďalšie prirodzené komponenty jazyka. Toto znamená, že ak vyhľadáme rovnaký dopyt v rôznych časoch, môžeme dostať rozdielne výsledky, v prípade, že sa niektoré z uvažovaných parametrov zmenia.
 
-Základným problémom je teda\ldots{} Najprv sa pozrieme na nejaké vysvetlenie (časť~\ref{ina:nejake}), a potom na ešte nejaké (časť~\ref{ina:nejake}).\footnote{Niekedy môžete potrebovať aj poznámku pod čiarou.}
+\subsection{História sémantického vyhľadávania} \label{vyvoj:historia}
+Sémantika sa v jazykovede zameriava na všetky významy slov, viet alebo textu. Pojem „sémantika" v roku 1883 zaviedol francúzsky filológ Michel Bréal v článku „Les lois intellectuelles du langage. Fragment de sémantique“ uverejnený v časopise „Annuaire de l'association des études grecques en France" (z fran. „Adresár Asociácie gréckych štúdií vo Francúzsku."). Sémantika sa využíva na vysvetlenie, ako slová môžu mať rozdielne významy pre rozdielnych individuálov z dôvoodu pozadia ich životných skúseností. 
 
-Môže sa zdať, že problém vlastne nejestvuje\cite{Coplien:MPD}, ale bolo dokázané, že to tak nie je~\cite{Czarnecki:Staged, Czarnecki:Progress}. Napriek tomu, aj dnes na webe narazíme na všelijaké pochybné názory\cite{PLP-Framework}. Dôležité veci možno \emph{zdôrazniť kurzívou}.
+V roku 1967 počítačový vedec Robert W. Floyd napísal článok popisujúci využitie sémantiky jazyka v v počítačoch. Týmto spôsobom spustil vlnu programovania v oblasti sémantiky jazyka. Jeho článok zahŕňal analýzu a návrh na algoritmy pre nájdenie najúčinnejších ciest v sieti a triedenie informácií.
+%nedokoncene
 
-
-\subsection{Nejaké vysvetlenie} \label{ina:nejake}
-
-Niekedy treba uviesť zoznam:
-
+\section{Oblasti, v ktorých sa využíva sémantické vyhľadávanie} \label{oblasti} %citing needed
+Sémantické vyhľadávanie sa používa v rôznych odvetviach na zlepšenie presnosti a relevantnosti výsledkov vyhľadávania pochopením významu a kontextu vyhľadávacieho dopytu.
+Toto sú len niektoré príklady toho, ako sa sémantické vyhľadávanie používa na zvýšenie presnosti vyhľadávania informácií a zlepšenie používateľských skúseností v širokej škále aplikácií a odvetví.
 \begin{itemize}
-\item jedna vec
-\item druhá vec
-	\begin{itemize}
-	\item x
-	\item y
-	\end{itemize}
+\item \cite{tumer2009empirical} Webové vyhľadávacie nástroje: Vyhľadávače ako Google používajú sémantické vyhľadávanie na lepšie pochopenie zámeru vyhľadávacieho dopytu používateľa. Pomáha to pri poskytovaní relevantnejších výsledkov vyhľadávania zvážením kontextu dopytu.
+\item Elektronický obchod: Online trhy ako Amazon alebo eBay využívajú sémantické vyhľadávanie na optimálne odporúčanie produktov, ktoré zodpovedaá preferenciám a potrebám používateľov. Môže tiež pomôcť pri vyhľadávaní produktov pomocou dopytov v prirodzenom jazyku. V praxi, ak uživateľ zadá dopyt „nádoba na horúce a studené nápoje" tak vyhľadávač v elektronickom obchode ponúkne uživateľovi termosky.
+\item Vyhľadávanie informácií na akademickej pôde: V akademických a vedeckých databázach pomáha sémantické vyhľadávanie výskumníkom nájsť relevantné články, články alebo dokumenty na základe významu a kontextu ich dopytov.
+\item Zdravotníctvo: Sémantické vyhľadávanie sa používa v lekárskych databázach a elektronických zdravotných záznamoch, aby mohli zdravotníci pracovníci efektívnejšie nájsť informácie o pacientoch, výskumné štúdie alebo liečebné protokoly.
+\item \cite{cotfas2019semantic} Sociálne médiá: Platformy sociálnych médií používajú sémantické vyhľadávanie, aby pomohli používateľom objaviť relevantný obsah vrátane príspevkov, obrázkov a videí na základe ich záujmov a interakcií.
+\item \cite{nazarenko2018annotation} Právne predpisy a dodržiavanie predpisov: Právnici a iní pracovníci práva zodpovední za dodržiavanie predpisov používajú sémantické vyhľadávanie na nájdenie konkrétnych ustanovení alebo odkazov v rozsiahlych právnych dokumentoch alebo regulačných textoch.
 \end{itemize}
 
-Ten istý zoznam, len číslovaný:
 
-\begin{enumerate}
-\item jedna vec
-\item druhá vec
-	\begin{enumerate}
-	\item x
-	\item y
-	\end{enumerate}
-\end{enumerate}
+\section{Využitie sémantického vyhľadávania v internetových obchodoch} \label{eshops}
+\cite{5694914} Počas vývoja internetového priemyselu sa elektronický obchod stal veľmi populárnym. Elektronický obchod, sprevádzaný rýchlym v posledných rokoch, zdôrazňuje rastúci význam vyhľadávania elektronického obchodu [1]. Tradičné vyhľadávanie v e-biznise je založené na názve produktu, popise produktu alebo kľúčových slovách produktu; vyhľadávanie môže odrážať len povahu obmedzeného počtu tovarov a nemôže uspokojiť rôzne individuálne požiadavky na vyhľadávanie.
 
-
-\subsection{Ešte nejaké vysvetlenie} \label{ina:este}
-
-\paragraph{Veľmi dôležitá poznámka.}
-Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom.
-
-
-
-\section{Dôležitá časť} \label{dolezita}
+%\paragraph{Veľmi dôležitá poznámka.}
+%Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom.
 
 
 
 
-\section{Ešte dôležitejšia časť} \label{dolezitejsia}
+\section{Sémantické vyhľadávanie v zdravotníctve} \label{healthcare}
+\cite{8217758} Pre dátových vedcov je dôležité, aby dobre chápali dostupnosť príslušných súborov údajov, ako aj obsah, štruktúru a existujúce analýzy týchto súborov údajov. Zatiaľ čo prebieha snaha o integráciu veľkého množstva rôznych súborov údajov, je nedostatok informačných zdrojov, ktoré by sa zameriavali na špecifické vzdelávacie potreby niektorých cieľových skupín, napríklad pre zdravodníckych pracovníkov.
+\cite{zenuni2015state}Konečný cieľ zlepšiť prax zdravotnej starostlivosti a vývoj lepších biomedicínskych produktov do značnej miery závisí od schopnosti zdieľať a prepájať množstvo zozbieraných lekárskych údajov. Kľúčovou výzvou na dosiahnutie tohto cieľa nie je len umožnenie integrácie údajov zahŕňajúcich heterogénne zdroje údajov a formáty, ale aj vývoj nástrojov a štandardov pre flexibilné vyhľadávanie, analýzu údajov a užívateľsky prívetivé rozhrania.
 
 
+\section{Ako umelá inteligencia posúva sémantické vyhľadávanie} \label{ai}
 
-\section{Najdôležitejšia časť}
 
 
 
@@ -122,6 +113,6 @@ Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom
 
 
 % týmto sa generuje zoznam literatúry z obsahu súboru literatura.bib podľa toho, na čo sa v článku odkazujete
-\bibliography{literatura}
-\bibliographystyle{abbrv} % prípadne alpha, abbrv alebo hociktorý iný
+\bibliography{bibliografia}
+\bibliographystyle{plain} % prípadne alpha, abbrv alebo hociktorý iný
 \end{document}
